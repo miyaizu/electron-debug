@@ -98,8 +98,8 @@ module.exports = options => {
 	});
 
 	app.on('ready', () => {
-		addExtensionIfInstalled('devtron', name => require(name).path);
-		addExtensionIfInstalled('electron-react-devtools', name => require(name).path);
+		addExtensionIfInstalled('devtron', name => eval("require")(name).path);
+		addExtensionIfInstalled('electron-react-devtools', name => eval("require")(name).path);
 
 		localShortcut.register('CmdOrCtrl+Shift+C', inspectElements);
 		localShortcut.register(isMacOS ? 'Cmd+Alt+I' : 'Ctrl+Shift+I', devTools);
